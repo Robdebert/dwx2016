@@ -1,0 +1,19 @@
+<p>Siehe Dashboard.component.html</p>
+
+<form class="form">
+	<!-- #variablenname -> ist dann so verfügbar, wird als DOM Node an die Funktion weitergeleitet -->
+	<input type="text" #title />
+	<input type="text" #descr />
+	<input type="text" #rating />
+	<input type="submit" value="Go" (click)="add(title, descr, rating)" />
+</form>
+
+
+<h4>Einträge</h4>
+<ul>
+<br-book [book]="book" 
+	*ngFor="let book of books"
+	(rated)="sort($event)">
+	<li>{{ book.title }} // {{ book.descr }} // {{ book.rating }}</li>
+</br-book>
+</ul>
