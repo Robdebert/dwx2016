@@ -10,6 +10,8 @@ import { Book } from '../shared';
   directives: [BookComponent]
 })
 
+// hier könnte auch @View({ template:}) stehen.. kann aber scheinbar auch im @Component gesetzt werden.
+
 
 export class DashboardComponent implements OnInit {
 

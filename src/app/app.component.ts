@@ -9,5 +9,5 @@ import { DashboardComponent } from './dashboard';
   directives: [DashboardComponent]
 })
 export class AppComponent {
-  title: string = 'AppComponent Title';
+  title: string = 'App.Component.ts Title';
 }

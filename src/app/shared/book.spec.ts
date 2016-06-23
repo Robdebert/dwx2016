@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-/*
+/* Diese Zeilen erzeugen beim Starten einen komischen Fehler, weil irgendwo ein Typeerror ist..
 import {
   beforeEach, beforeEachProviders,
   describe, xdescribe,
