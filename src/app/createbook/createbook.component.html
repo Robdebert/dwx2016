@@ -1,0 +1,18 @@
+<div class="row-fluid">
+    <form class="span6 offset1">
+        <!-- #variablenname -> ist dann so verfügbar, wird als DOM Node an die Funktion weitergeleitet -->
+        <p class="input-group">
+            <span class="input-group-addon">Titel</span>
+            <input type="text" class="form-control" aria-label="Titel" #title>
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon">descr</span>
+            <input type="text" class="form-control" aria-label="descr" #descr>
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon">rating</span>
+            <input type="text" class="form-control" aria-label="rating" #rating>
+        </p>
+        <input type="submit" value="Go" (click)="add(title, descr, rating)" class="button btn btn-danger"/>
+    </form>
+</div>

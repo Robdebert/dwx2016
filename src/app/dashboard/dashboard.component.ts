@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CreatebookComponent } from '../createbook';
 import { BookComponent } from '../book';
 import { Book } from '../shared';
 
@@ -7,7 +8,7 @@ import { Book } from '../shared';
   selector: 'br-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css'],
-  directives: [BookComponent]
+  directives: [BookComponent, CreatebookComponent]
 })
 
 // hier könnte auch @View({ template:}) stehen.. kann aber scheinbar auch im @Component gesetzt werden.
@@ -20,28 +21,32 @@ export class DashboardComponent implements OnInit {
   constructor() {}
   
   // Wird vom FORM submit Button aufgerufen, durch das onclick-event
-	  add(title, descr, rating) {
+	  add(book: Book) {
+      // console.log(book);
 		  this.books.push(
-			new Book(title.value, descr.value, rating.value)
+			 new Book(book.title, book.descr, book.rating)
 		  );
-		  
-		title.value = descr.value = rating.value = "";
-		return false;
+		  this.sort(book);
+      return false;
 	  }
 
 	  
 	  
   ngOnInit() {
 	this.books = [new Book('Buch 1', 'blablabla', 5), 
-				new Book('Buch 2', 'bgflindfglablabla')
-	
+				  new Book('Buch 2', 'bgflindfglablabla')
 			];
   }
   
   
+  remove(book: Book) {
+      var i = this.books.indexOf(book);
+      this.books.splice(i, 1);
+  }
   
   sort(book: Book) {
-	this.books.sort((a,b) => b.rating - a.rating);  
+	  this.books.sort((a,b) => b.rating - a.rating);  
+	// So ginge es auch: this.books.sort(function(current, next) { next.rating - current.rating });
   }
 
 }

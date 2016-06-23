@@ -1,21 +1,13 @@
 <p>Siehe Dashboard.component.html</p>
-<p>und auch <a href='https://angularjs.de/artikel/angular2-tutorial-deutsch' target='_blank'>das hier</a></p>
-<p>Wichtig zu wissen: "ng g c name" = Generate Component "name"</p>
 
-<form class="form">
-	<!-- #variablenname -> ist dann so verfügbar, wird als DOM Node an die Funktion weitergeleitet -->
-	<input type="text" #title />
-	<input type="text" #descr />
-	<input type="text" #rating />
-	<input type="submit" value="Go" (click)="add(title, descr, rating)" />
-</form>
-
+<br-createbook [this]="this"
+    (bookCreated)="add($event)"></br-createbook>
 
 <h4>Einträge</h4>
-<ul>
+
+<!-- [book]="book" -> Property Binding. Die Variable "book", die HIER verfügbar ist, soll auch in br-book als [book] verfügbar sein -->
 <br-book [book]="book" 
 	*ngFor="let book of books"
-	(rated)="sort($event)">
-	<li>{{ book.title }} // {{ book.descr }} // {{ book.rating }}</li>
+	(rated)="sort($event)"
+    (removed)="remove($event)">
 </br-book>
-</ul>

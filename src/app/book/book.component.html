@@ -1,8 +1,29 @@
 <div class="well">
-<hr/>
-	Titel = {{ book.title }}<br/>
-	Descr:  {{ book.descr }}<br/>
-	Rating =  {{ book.rating }}<br/>
-	<button (click)="rateUp()">Up</button>
-	<button (click)="rateDown()">Down</button>
+    <h3>
+        {{ book.title }}
+        <span class="label label-primary rating">{{ book.rating }}</span>
+    </h3>
+	
+    <p>
+        <img src="http://gravatar.com/avatar/{{book.rating}}?s=80&default=wavatar" />
+        {{ book.descr }}
+    </p>
+    
+	<button (click)="book.title='HACKED'" class="btn btn-warning">
+        Geheime Funktion
+    </button>
+    
+	<button (click)="rateUp()" class="btn btn-success">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+        Up  
+    </button>
+    
+	<button (click)="rateDown()" class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-down"></span>
+        Down
+    </button>
+	<button (click)="remove()" class="btn btn-default">
+        <span class="glyphicon glyphicon-arrow-remove"></span>
+        LÖSCHEN
+    </button>
 </div>

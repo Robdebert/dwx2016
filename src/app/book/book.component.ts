@@ -5,7 +5,8 @@ import { Book } from '../shared';
   moduleId: module.id,
   selector: 'br-book',
   templateUrl: 'book.component.html',
-  styleUrls: ['book.component.css']
+  styleUrls: ['book.component.css'],
+  // outputs: ["removed: EventEmitter<Book>", "removed: EventEmitter<Book>"]
 })
 
 
@@ -13,9 +14,12 @@ export class BookComponent implements OnInit {
 	
 	@Input() book: Book; // nimmt Daten von aussen an, öffentliche Api. Muss in Zeile 1 mit importiert werden
 	@Output() rated: EventEmitter<Book>; // Siehe wieder in Zeile 1, da wird "Output" importiert.
+    @Output() removed: EventEmitter<Book>; // Siehe wieder in Zeile 1, da wird "Output" importiert.
+    
 	
   constructor() {
 	  this.rated = new EventEmitter(); // erzeugt ein neues Event. Siehe für den Aufruf: dashboard.component.html: "(rated)="sort($event)..."
+	  this.removed = new EventEmitter(); // erzeugt ein neues Event. Siehe für den Aufruf: dashboard.component.html: "(rated)="sort($event)..."
   }
   
   rateUp() {
@@ -27,7 +31,12 @@ export class BookComponent implements OnInit {
 	  this.book.rateDown();
 	  this.rated.emit(this.book);
   }
-
+  
+  remove() {
+    // console.log(this.book);
+	this.removed.emit(this.book);
+  }
+  
 
   ngOnInit() {
   }

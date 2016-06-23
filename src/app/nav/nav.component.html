@@ -1,0 +1,9 @@
+<h4>Menü:</h4>
+<ul *ngFor="let item of menuitems"  class="nav nav-pills nav-stacked">
+    <li [class.active]="item.active">
+        <a href='#{{ item.href }}' >
+            {{ item.title }}
+        </a>
+    </li>
+</ul>
+

@@ -10,21 +10,32 @@
   {{/unless}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src="node_modules/ng2-bootstrap/bundles/ng2-bootstrap.min.js"></script>
+  
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
+  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+  <!-- CMD: "npm install bootstrap@3.3.6 --save" -->
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
+  <!--
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
+    -->
+    
 </head>
 <body>
-  <app-root>Loading App...</app-root>
+    <div class="container">
+        <app-root>Loading App...</app-root>
+    </div>
+    
 
-  
-
+    <!-- zB auch für IE9 Unterstützung -->
     {{#each scripts.polyfills}}
-    <script src="{{.}}"></script>
+        <script src="{{.}}"></script>
     {{/each}}
+    
     <script>
+       // Nutzt system.js um Dinge asynchron zu laden.
       System.import('system-config.js').then(function () {
-        System.import('main');
+        System.import('main'); // Das hier ist Angular: main.ts wird hier geladen.
       }).catch(console.error.bind(console));
     </script>
 

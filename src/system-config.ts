@@ -35,6 +35,10 @@ const barrels: string[] = [
   'app/shared',
   'app/dashboard',
   'app/book',
+  'app/bibo-component',
+  'app/bibo',
+  'app/nav',
+  'app/createbook',
   /** @cli-barrel */
 ];
 

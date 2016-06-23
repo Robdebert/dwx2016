@@ -15,7 +15,10 @@ module.exports = function(defaults) {
       'es6-shim/es6-shim.js',
       'reflect-metadata/**/*.+(ts|js|js.map)',
       'rxjs/**/*.+(js|js.map)',
-      '@angular/**/*.+(js|js.map)'
+      '@angular/**/*.+(js|js.map)',
+      'bootstrap/dist/fonts/**',
+      'bootstrap/dist/css/**',
+      'bootstrap/dist/js/**'
     ]
   });
 };
